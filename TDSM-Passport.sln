@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDSM-Passport", "TDSM-Passport\TDSM-Passport.csproj", "{D26731BA-9D3E-4667-AE24-DABEC6E7E411}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D26731BA-9D3E-4667-AE24-DABEC6E7E411}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D26731BA-9D3E-4667-AE24-DABEC6E7E411}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D26731BA-9D3E-4667-AE24-DABEC6E7E411}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D26731BA-9D3E-4667-AE24-DABEC6E7E411}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = TDSM-Account\TDSM-Passport.csproj
+		Policies = $0
+		$0.TextStylePolicy = $1
+		$1.RemoveTrailingWhitespace = True
+		$1.inheritsSet = VisualStudio
+		$1.inheritsScope = text/plain
+		$1.scope = text/x-csharp
+		$0.CSharpFormattingPolicy = $2
+		$2.inheritsSet = Mono
+		$2.inheritsScope = text/x-csharp
+		$2.scope = text/x-csharp
+	EndGlobalSection
+EndGlobal
