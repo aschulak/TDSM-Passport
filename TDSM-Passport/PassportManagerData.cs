@@ -8,7 +8,7 @@ namespace Passport
     /**
      * Data stored by PassportManager
      */
-    public class APassportManagerData
+    public class PassportManagerData
     {
         private String pluginFolderPath;
         public List<User> users;
@@ -16,7 +16,7 @@ namespace Passport
         public Dictionary<Passport, User> usersByPassport;
         public Dictionary<string, Passport> passportsByPlayerName;
 
-        public APassportManagerData(String pluginPath)
+        public PassportManagerData(String pluginPath)
         {
             this.pluginFolderPath = pluginPath + Path.DirectorySeparatorChar + "passportdata.xml";
             users = new List<User>();

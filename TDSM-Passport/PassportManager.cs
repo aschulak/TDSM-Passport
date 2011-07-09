@@ -29,11 +29,11 @@ namespace Passport
  
     public class PassportManager
     {        
-        private APassportManagerData aPassportManagerData;
+        private PassportManagerData passportManagerData;
      
         public PassportManager()
         {                
-            setupAPassportManagerData();           
+            setupPassportManagerData();
         }
      
         //
@@ -56,12 +56,12 @@ namespace Passport
             user.password = password;
             user.lastPlayerName = player.Name;
 
-            aPassportManagerData.users.Add(user);
+            passportManagerData.users.Add(user);
 
             Passport passport = createPassport(user);
-            aPassportManagerData.passportsByUser[user] = passport;
-            aPassportManagerData.passportsByPlayerName[user.lastPlayerName] = passport;
-            aPassportManagerData.usersByPassport[passport] = user;
+            passportManagerData.passportsByUser[user] = passport;
+            passportManagerData.passportsByPlayerName[user.lastPlayerName] = passport;
+            passportManagerData.usersByPassport[passport] = user;
 
             Log("[" + player.Name + "] created user <" + username + ">");
             return passport;
@@ -93,16 +93,16 @@ namespace Passport
             }
          
             Passport passport = null;
-            aPassportManagerData.passportsByUser.TryGetValue(user, out passport);
+            passportManagerData.passportsByUser.TryGetValue(user, out passport);
             if (passport != null) {
                 Log("Got passport:" + passport);
                 Log("WARN: <" + username + ">[" + player.Name + "] attempting to login to account already logged in.");
                 throw new UserAlreadyLoggedInException();
             } else {
                 passport = createPassport(user);
-                aPassportManagerData.passportsByUser[user] = passport;
-                aPassportManagerData.passportsByPlayerName[user.lastPlayerName] = passport;
-                aPassportManagerData.usersByPassport[passport] = user;
+                passportManagerData.passportsByUser[user] = passport;
+                passportManagerData.passportsByPlayerName[user.lastPlayerName] = passport;
+                passportManagerData.usersByPassport[passport] = user;
                 Log("Created new passport:" + passport);
             }
          
@@ -144,7 +144,7 @@ namespace Passport
         public Passport getPassport(Player player)
         {
             Passport passport = null;
-            aPassportManagerData.passportsByPlayerName.TryGetValue(player.Name, out passport);
+            passportManagerData.passportsByPlayerName.TryGetValue(player.Name, out passport);
             return passport;
         }
      
@@ -154,7 +154,7 @@ namespace Passport
         public Passport getPassport(User user)
         {            
             Passport passport = null;
-            aPassportManagerData.passportsByUser.TryGetValue(user, out passport);            
+            passportManagerData.passportsByUser.TryGetValue(user, out passport);
             return passport;
         }
 
@@ -165,14 +165,14 @@ namespace Passport
         internal void save()
         {
             Log("Saving data...");
-            aPassportManagerData.save();
+            passportManagerData.save();
         }
 
-        private void setupAPassportManagerData()
+        private void setupPassportManagerData()
         {            
-            aPassportManagerData = new APassportManagerData(PassportPlugin.PLUGIN_FOLDER);
+            passportManagerData = new PassportManagerData(PassportPlugin.PLUGIN_FOLDER);
             try {
-                aPassportManagerData.load();
+                passportManagerData.load();
             } catch (Exception e) {
                 // this should only error on initial startup since there is no file
             }
@@ -181,15 +181,15 @@ namespace Passport
         private void logoutUser(User user, Passport passport)
         {
             Log("Logging out user <" + user.username + ">[" + user.lastPlayerName + "]");
-            aPassportManagerData.usersByPassport[passport] = null;
-            aPassportManagerData.passportsByUser[user] = null;
-            aPassportManagerData.passportsByPlayerName[user.lastPlayerName] = null;
+            passportManagerData.usersByPassport[passport] = null;
+            passportManagerData.passportsByUser[user] = null;
+            passportManagerData.passportsByPlayerName[user.lastPlayerName] = null;
         }
      
         // using a list to make XmlSerialization easier
         private User getUser(string username)
         {            
-            foreach (User user in aPassportManagerData.users) {
+            foreach (User user in passportManagerData.users) {
                 if (user.username.Equals(username)) {    
                     return user;
                 }
@@ -200,7 +200,7 @@ namespace Passport
         private User getUser(Passport passport)
         {        
             User user = null;
-            aPassportManagerData.usersByPassport.TryGetValue(passport, out user);
+            passportManagerData.usersByPassport.TryGetValue(passport, out user);
             return user;
         }
      

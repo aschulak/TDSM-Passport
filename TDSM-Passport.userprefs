@@ -1,11 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.Workbench ActiveDocument="TDSM-Passport\PassportManager.cs">
     <Files>
-      <File FileName="TDSM-Passport\AssemblyInfo.cs" Line="12" Column="36" />
+      <File FileName="TDSM-Passport\AssemblyInfo.cs" Line="20" Column="30" />
       <File FileName="TDSM-Passport\Passport.cs" Line="41" Column="10" />
-      <File FileName="TDSM-Passport\PassportManager.cs" Line="136" Column="42" />
-      <File FileName="TDSM-Passport\PassportPlugin.cs" Line="151" Column="36" />
+      <File FileName="TDSM-Passport\PassportManager.cs" Line="120" Column="3" />
+      <File FileName="TDSM-Passport\PassportPlugin.cs" Line="30" Column="60" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

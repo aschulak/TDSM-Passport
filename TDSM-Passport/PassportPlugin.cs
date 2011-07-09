@@ -29,8 +29,8 @@ namespace Passport
             Name = "Passport";
             Description = "Server-side single user accounts";
             Author = "Envoy"; 
-            Version = "1.0.22";
-            TDSMBuild = 22;
+            Version = "1.1.24";
+            TDSMBuild = 24;
          
             Log("Version " + base.Version + " Loading...");
         
