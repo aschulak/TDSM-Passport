@@ -7,7 +7,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{D26731BA-9D3E-4667-AE24-DABEC6E7E411}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Passport</RootNamespace>
+    <RootNamespace>Envoy.TDSM_Passport</RootNamespace>
     <AssemblyName>Passport</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <newfilesearch>OnLoadAutoInsert</newfilesearch>

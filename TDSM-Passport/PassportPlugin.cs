@@ -1,11 +1,9 @@
 using System;
 using System.Collections.Generic;
-
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Xml;
-
 using System.Timers;
 using Terraria_Server.Plugin;
 using Terraria_Server;
@@ -13,7 +11,7 @@ using Terraria_Server.Commands;
 using Terraria_Server.Events;
 using Terraria_Server.Misc;
 
-namespace Passport
+namespace Envoy.TDSM_Passport
 {
     public class PassportPlugin : Plugin
     {
@@ -27,9 +25,9 @@ namespace Passport
         public override void Load()
         {
             Name = "Passport";
-            Description = "Server-side single user accounts";
+            Description = "Server-side single user accounts and developer API";
             Author = "Envoy"; 
-            Version = "1.1.24";
+            Version = "1.2.24";
             TDSMBuild = 24;
          
             Log("Version " + base.Version + " Loading...");
@@ -71,7 +69,11 @@ namespace Passport
         { 
             // not sure what is going on, but must do this hack
             Event.Player.Name = Event.Socket.oldName;
-            passportManager.logout(Event.Player);
+            try {
+                passportManager.logout(Event.Player);
+            } catch (UserNotLoggedInException e) {
+                // noop
+            }
             Event.Player.Name = null;
             Event.Cancelled = true;
         }

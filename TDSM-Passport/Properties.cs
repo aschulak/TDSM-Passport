@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Passport
+namespace Envoy.TDSM_Passport
 {
     public class Properties : PropertiesFile
     {

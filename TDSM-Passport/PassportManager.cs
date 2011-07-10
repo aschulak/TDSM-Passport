@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using Terraria_Server;
 
-namespace Passport
+namespace Envoy.TDSM_Passport
 {
     /**
     * Manages singleton reference of PassportManager for all plugins.

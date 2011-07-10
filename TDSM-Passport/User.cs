@@ -1,6 +1,6 @@
 using System;
 
-namespace Passport
+namespace Envoy.TDSM_Passport
 {
     public class User
     {

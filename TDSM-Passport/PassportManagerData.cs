@@ -3,7 +3,7 @@ using System.IO;
 using System.Xml.Serialization;
 using System.Collections.Generic;
 
-namespace Passport
+namespace Envoy.TDSM_Passport
 {    
     /**
      * Data stored by PassportManager
