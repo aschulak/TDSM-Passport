@@ -177,7 +177,6 @@ namespace Envoy.TDSM_Passport
                             Event.Player.sendMessage("Error: Not logged in.", 255, 255f, 0f, 0f);
                             Event.Cancelled = true;
                             return;
-
                         }
 
                     }
@@ -185,7 +184,7 @@ namespace Envoy.TDSM_Passport
                 }
             }
 
-            Event.Cancelled = true;
+
         }
 
         //
