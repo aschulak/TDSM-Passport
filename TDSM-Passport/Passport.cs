@@ -13,11 +13,6 @@ namespace Envoy.TDSM_Passport
             this.user = user;
             this.token = token;
         }
-     
-        public static Passport createPassport(User user)
-        {
-            return new Passport(user, createRandomString(64));
-        }
 
         public User getUser()
         {
@@ -41,8 +36,13 @@ namespace Envoy.TDSM_Passport
         }
 
         //
-        // PRIVATE
+        // PRIVATE and INTERNAL
         //
+
+        internal static Passport createPassport(User user)
+        {
+            return new Passport(user, createRandomString(64));
+        }
 
         private static string createRandomString(int passwordLength)
         {

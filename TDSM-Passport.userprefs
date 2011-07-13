@@ -1,15 +1,21 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="TDSM-Passport\PassportManagerData.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="TDSM-Passport\TDSM-Passport.csproj.user">
     <Files>
-      <File FileName="TDSM-Passport\PassportPlugin.cs" Line="1" Column="1" />
-      <File FileName="TDSM-Passport\Passport.cs" Line="3" Column="1" />
-      <File FileName="TDSM-Passport\User.cs" Line="1" Column="1" />
-      <File FileName="TDSM-Passport\AssemblyInfo.cs" Line="1" Column="1" />
-      <File FileName="TDSM-Passport\PassportManager.cs" Line="1" Column="1" />
+      <File FileName="..\TDSM-LastCommand\TDSM-LastCommand\LastCommandPlugin.cs" Line="36" Column="19" />
+      <File FileName="..\lwc\Store.cs" Line="5" Column="2" />
+      <File FileName="..\TDSM-WarpDrive\README" Line="1" Column="1" />
+      <File FileName="TDSM-Passport\PassportPlugin.cs" Line="166" Column="25" />
+      <File FileName="TDSM-Passport\Passport.cs" Line="22" Column="15" />
+      <File FileName="TDSM-Passport\User.cs" Line="9" Column="43" />
       <File FileName="TDSM-Passport\PassportManagerData.cs" Line="1" Column="1" />
+      <File FileName="..\TDSM-WarpDrive\TDSM-WarpDrive\WarpList.cs" Line="16" Column="90" />
+      <File FileName="TDSM-Passport\AssemblyInfo.cs" Line="26" Column="34" />
+      <File FileName="TDSM-Passport\PassportManager.cs" Line="1" Column="1" />
       <File FileName="TDSM-Passport\PropertiesFile.cs" Line="1" Column="1" />
       <File FileName="TDSM-Passport\Properties.cs" Line="1" Column="1" />
+      <File FileName="TDSM-Passport\UserList.cs" Line="28" Column="9" />
+      <File FileName="TDSM-Passport\TDSM-Passport.csproj.user" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

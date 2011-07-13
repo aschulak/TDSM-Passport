@@ -8,10 +8,6 @@ namespace Envoy.TDSM_Passport
         public string password = "";
         public string lastPlayerName = "";
      
-        public User()
-        {
-        }
-     
         public override bool Equals(Object other)
         {
             User otherUser = (User)other;

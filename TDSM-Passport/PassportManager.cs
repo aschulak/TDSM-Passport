@@ -56,7 +56,7 @@ namespace Envoy.TDSM_Passport
             user.password = password;
             user.lastPlayerName = player.Name;
 
-            passportManagerData.users.Add(user);
+            passportManagerData.addUser(user);
 
             Passport passport = createPassport(user);
             passportManagerData.passportsByUser[user] = passport;
@@ -189,7 +189,7 @@ namespace Envoy.TDSM_Passport
         // using a list to make XmlSerialization easier
         private User getUser(string username)
         {            
-            foreach (User user in passportManagerData.users) {
+            foreach (User user in passportManagerData.getUsers()) {
                 if (user.username.Equals(username)) {    
                     return user;
                 }

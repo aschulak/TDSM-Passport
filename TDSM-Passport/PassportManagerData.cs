@@ -2,50 +2,50 @@ using System;
 using System.IO;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using Envoy.TDSM_Vault;
 
 namespace Envoy.TDSM_Passport
-{    
-    /**
-     * Data stored by PassportManager
-     */
+{
+    // Data stored by PassportManager
     public class PassportManagerData
     {
-        private String pluginFolderPath;
-        public List<User> users;
         public Dictionary<User, Passport> passportsByUser;
         public Dictionary<Passport, User> usersByPassport;
         public Dictionary<string, Passport> passportsByPlayerName;
+        private UserList userList;
+        private Vault vault;
 
         public PassportManagerData(String pluginPath)
         {
-            this.pluginFolderPath = pluginPath + Path.DirectorySeparatorChar + "passportdata.xml";
-            users = new List<User>();
+            vault = VaultFactory.getVault();
+            userList = new UserList();
             passportsByUser = new Dictionary<User, Passport>();
             passportsByPlayerName = new Dictionary<string, Passport>();
             usersByPassport = new Dictionary<Passport, User>();
         }
 
-        /**
-         * Save user information to disk.
-         */
-        public void save()
+        public void addUser(User user)
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(List<User>));
-            TextWriter textWriter = new StreamWriter(@pluginFolderPath);
-            serializer.Serialize(textWriter, users);
-            textWriter.Close();
+            userList.getUsers().Add(user);
+            // save for good measure, though this probably makes the save timer moot
+            save();
         }
 
-        /**
-         * Load user information from disk.
-         */
+        public List<User> getUsers()
+        {
+            return userList.getUsers();
+        }
+
+        public void save()
+        {
+            vault.store(userList);
+        }
+
         public void load()
         {
-            XmlSerializer deserializer = new XmlSerializer(typeof(List<User>));
-            TextReader textReader = new StreamReader(@pluginFolderPath);
-            users = (List<User>)deserializer.Deserialize(textReader);
-            textReader.Close();
+            vault.getVaultObject(userList);
         }
      
     }
+    
 }

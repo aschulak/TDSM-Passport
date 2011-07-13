@@ -27,7 +27,7 @@ namespace Envoy.TDSM_Passport
             Name = "Passport";
             Description = "Server-side single user accounts and developer API";
             Author = "Envoy"; 
-            Version = "1.3.24";
+            Version = "1.4.24";
             TDSMBuild = 24;
          
             Log("Version " + base.Version + " Loading...");
@@ -109,6 +109,8 @@ namespace Envoy.TDSM_Passport
                         try {
                             passport = passportManager.createUser(Event.Player, username, password);
                             Event.Player.sendMessage("Successfully created account.", 255, 0f, 255f, 255f);
+                            Event.Cancelled = true;
+                            return;
                         } catch (UserExistsException e) {
                             Log("User already exists");
                             Event.Player.sendMessage("Error: User already exists.", 255, 255f, 0f, 0f);
@@ -145,6 +147,8 @@ namespace Envoy.TDSM_Passport
                         try {
                             passport = passportManager.loginUser(Event.Player, username, password);
                             Event.Player.sendMessage("Successfully logged in.", 255, 0f, 255f, 255f);
+                            Event.Cancelled = true;
+                            return;
                         } catch (UserNotFoundException e1) {
                             Event.Player.sendMessage("Error: Authentication.", 255, 255f, 0f, 0f);
                             Event.Cancelled = true;
@@ -166,8 +170,6 @@ namespace Envoy.TDSM_Passport
                     // LOGOUT
                     //
                     if (commands[0].Equals("/logout")) {        
-                        Log("logout");
-
                         try {
                             passportManager.logout(Event.Player);
                             Event.Player.sendMessage("Successfully logged out.", 255, 0f, 255f, 255f);
@@ -179,11 +181,12 @@ namespace Envoy.TDSM_Passport
                             return;
                         }
 
+                        Event.Cancelled = true;
                     }
 
                 }
-            }
 
+            }
 
         }
 
@@ -236,6 +239,7 @@ namespace Envoy.TDSM_Passport
             {
                 passportManager.save();
             }
+            
         }
 
     }
