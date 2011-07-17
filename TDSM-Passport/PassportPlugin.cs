@@ -27,8 +27,8 @@ namespace Envoy.TDSM_Passport
             Name = "Passport";
             Description = "Server-side single user accounts and developer API";
             Author = "Envoy"; 
-            Version = "1.4.24";
-            TDSMBuild = 24;
+            Version = "1.4.26";
+            TDSMBuild = 26;
          
             Log("Version " + base.Version + " Loading...");
         
@@ -52,30 +52,31 @@ namespace Envoy.TDSM_Passport
      
         public override void Enable()
         {
-            Log("Enabled");
             this.registerHook(Hooks.PLAYER_COMMAND);            
-            this.registerHook(Hooks.PLAYER_LOGOUT);            
+            this.registerHook(Hooks.PLAYER_LOGOUT);
+            Log("Enabled");
         }
 
         public override void Disable()
         {
-            Log("Disabled");
             passportManagerSaveTimer.Stop();
             passportManager.save();
             isEnabled = false;
+            Log("Disabled");
         }
-     
+
         public override void onPlayerLogout(PlayerLogoutEvent Event)
         { 
             // not sure what is going on, but must do this hack
-            Event.Player.Name = Event.Socket.oldName;
+            //Event.Player.Name = Event.Socket.oldName;
+            //Log("logging out:" + Event.Player.Name);
             try {
                 passportManager.logout(Event.Player);
             } catch (UserNotLoggedInException e) {
                 // noop
+                Log(e.Message);
             }
-            Event.Player.Name = null;
-            Event.Cancelled = true;
+            //Event.Cancelled = true;
         }
      
         public override void onPlayerCommand(PlayerCommandEvent Event)

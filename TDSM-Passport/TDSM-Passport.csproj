@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Envoy.TDSM_Passport</RootNamespace>
     <AssemblyName>Passport</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <newfilesearch>OnLoadAutoInsert</newfilesearch>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -51,15 +51,17 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
+    <Reference Include="System">
+    </Reference>
     <Reference Include="Terraria_Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Terraria_Server.exe</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization">
     </Reference>
-    <Reference Include="System.Xml" />
-    <Reference Include="Vault, Version=1.1.24.38698, Culture=neutral, PublicKeyToken=null">
+    <Reference Include="System.Xml">
+    </Reference>
+    <Reference Include="Vault, Version=1.1.25.25643, Culture=neutral, PublicKeyToken=null">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\TDSM-Vault\TDSM-Vault\bin\Release\Vault.dll</HintPath>
     </Reference>
