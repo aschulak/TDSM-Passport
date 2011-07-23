@@ -27,7 +27,7 @@ namespace Envoy.TDSM_Passport
             Name = "Passport";
             Description = "Server-side single user accounts and developer API";
             Author = "Envoy"; 
-            Version = "1.4.28";
+            Version = "1.5.28";
             TDSMBuild = 28;
          
             Log("Version " + base.Version + " Loading...");
@@ -67,16 +67,12 @@ namespace Envoy.TDSM_Passport
 
         public override void onPlayerLogout(PlayerLogoutEvent Event)
         { 
-            // not sure what is going on, but must do this hack
-            //Event.Player.Name = Event.Socket.oldName;
-            //Log("logging out:" + Event.Player.Name);
             try {
                 passportManager.logout(Event.Player);
             } catch (UserNotLoggedInException e) {
                 // noop
                 Log(e.Message);
             }
-            //Event.Cancelled = true;
         }
      
         public override void onPlayerCommand(PlayerCommandEvent Event)
@@ -148,6 +144,9 @@ namespace Envoy.TDSM_Passport
                         try {
                             passport = passportManager.loginUser(Event.Player, username, password);
                             Event.Player.sendMessage("Successfully logged in.", 255, 0f, 255f, 255f);
+                            User user = passport.getUser();
+                            Event.Player.sendMessage("Last login at: " + user.lastLoginDate, 255, 0f, 255f, 255f);
+                            user.lastLoginDate = System.DateTime.Now.ToString();
                             Event.Cancelled = true;
                             return;
                         } catch (UserNotFoundException e1) {

@@ -55,6 +55,7 @@ namespace Envoy.TDSM_Passport
             user.username = username;
             user.password = password;
             user.lastPlayerName = player.Name;
+            user.lastLoginDate = System.DateTime.Now.ToString();
 
             passportManagerData.addUser(user);
 
@@ -74,13 +75,11 @@ namespace Envoy.TDSM_Passport
         {            
             User user = getUser(username);
          
-            // TODO should throw Exception
             if (user == null) {
                 Log("No user found: <" + username + ">");
                 throw new UserNotFoundException();
             }
                  
-            // TODO should throw Exception
             if (user.password != password) {
                 Log("Password doesn't match");
                 throw new AuthenticationException();

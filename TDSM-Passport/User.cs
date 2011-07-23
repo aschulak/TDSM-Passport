@@ -7,6 +7,7 @@ namespace Envoy.TDSM_Passport
         public string username = "";
         public string password = "";
         public string lastPlayerName = "";
+        public string lastLoginDate = "";
      
         public override bool Equals(Object other)
         {
