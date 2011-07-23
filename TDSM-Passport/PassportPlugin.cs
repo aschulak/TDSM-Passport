@@ -27,8 +27,8 @@ namespace Envoy.TDSM_Passport
             Name = "Passport";
             Description = "Server-side single user accounts and developer API";
             Author = "Envoy"; 
-            Version = "1.4.26";
-            TDSMBuild = 26;
+            Version = "1.4.28";
+            TDSMBuild = 28;
          
             Log("Version " + base.Version + " Loading...");
         
